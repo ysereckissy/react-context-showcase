@@ -4,6 +4,7 @@ import './App.css';
 import ThemedButton from './themed-button';
 import { Provider, themes } from './theme-context';
 import ThemeColor from './ThemeColor';
+import ThemeTogglerButton from './theme-toggler-button';
 
 const Toolbar = props => (
   <ThemedButton onClick={props.changeTheme} >
@@ -15,6 +16,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       theme: themes.light,
+      toggleTheme: this.toggleTheme,
     };
   }
 
@@ -27,8 +29,8 @@ class App extends React.Component {
   render = () => {
     return (
       <article>
-        <Provider value={this.state.theme} >
-          <Toolbar changeTheme={this.toggleTheme} />
+        <Provider value={this.state} >
+         <ThemeTogglerButton /> 
         <section>
           <ThemeColor />
         </section>

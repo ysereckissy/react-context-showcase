@@ -4,7 +4,7 @@ import './index.css';
 import { Consumer as ThemeConsumer} from './theme-context';
 const ThemeColor = props => (
     <ThemeConsumer>
-    {context => <p className="theme-box" style={{color: context.foreground, backgroundColor: context.background}}>
+    {({theme}) => <p className="theme-box" style={{color: theme.foreground, backgroundColor: theme.background}}>
             the aim of this section is to show what the theme colors look like. here we add more text just so that you may clearly see it.
             Add more text to have a larger box size.
         </p>}
